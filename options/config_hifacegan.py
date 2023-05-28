@@ -90,12 +90,13 @@ class TrainOptions(object):
 
 
 class TestOptions(object):
-    name = '<must be the same as TrainOptions.name>'
+    name = 'IdolGan'
     results_dir = './results/'
     gpu_ids = [0]
     crop_size = 512
     dataset_mode = 'test'
     which_epoch = 'latest'
+    dataroot='./dataset/'
 
     aspect_ratio = 1.0
     batchSize = 1
@@ -121,9 +122,9 @@ class TestOptions(object):
     # make sure the following options match the TrainOptions
     model = 'pix2pix'
     nThreads = 0
-    netG = 'hifacegan'
+    netG = 'lipspade'
     nef = 16
-    ngf = 64 
+    ngf = 48
     no_flip = True
     no_instance = True
     no_pairing_check = False
