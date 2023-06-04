@@ -67,23 +67,11 @@ for i, data_i in tqdm(enumerate(dataloader)):
         name = os.path.splitext(os.path.basename(img_path[b]))[0]
         im1=visuals_rgb['input_label']
         im2=visuals_rgb['synthesized_image']
-        #im3=visuals_rgb['ground_truth']
-        #res_rgb = visuals_rgb['residual_input_fake']
         
-        h = im1.shape[0]
-        im = np.zeros((h, h*2, 3))
-        im[:,:h] = im1
-        im[:,h:2*h] = im2
-        #im[:,2*h:] = im3
-        '''
-        h = im1.shape[0]
-        im = np.zeros((h, h*4, 3))
-        im[:,:h] = im1
-        im[:,h:2*h] = im2
-        im[:,2*h:3*h] = res_rgb
-        im[:,3*h:] = im3
-        '''
-        
-        cv2.imwrite(os.path.join(save_path, name+'.jpg'), im[:,:,::-1])
-        #print('a')
-#webpage.save()
+        # h = im1.shape[0]
+        # im = np.zeros((h, h*2, 3))
+        # im[:,:h] = im1
+        # im[:,h:2*h] = im2
+
+        cv2.imwrite(os.path.join(save_path, name+'_gt.jpg'), im1[:,:,::-1])
+        cv2.imwrite(os.path.join(save_path, name+'.jpg'), im2[:,:,::-1])
